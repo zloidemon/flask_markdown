@@ -17,6 +17,23 @@ markdown(app)
 
 ```
 
+## Usage with external extensions
+
+```python
+from flask.ext.markdown import markdown
+
+app = Flask()
+
+app.config['MARKDOWN_EXTENSIONS'] = ['extra', 'fenced_code', 'codehilite', 'graphviz']
+app.config['MARKDOWN_EXTCONFIGS'] = {
+                                      'graphviz': {
+                                        'WRITE_IMGS_DIR':'/tmp/graphviz/',
+                                        'BASE_IMG_LINK_DIR':'/static/img/graphviz/'
+                                      }
+                                    }
+markdown(app)
+
+```
 
 ## Features
 
